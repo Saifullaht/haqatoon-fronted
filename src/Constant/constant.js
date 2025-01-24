@@ -1,7 +1,7 @@
  
 
 const devUrl = "http://localhost:3007/";
-const  DeployURl = "https://haatoon-backend.vercel.app/";
+const  DeployURl = "https://haqatoon-backend.vercel.app/";
 
 export const BaseURl = DeployURl;
 
