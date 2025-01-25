@@ -11,7 +11,19 @@ import Login from "./pages/login";
 import Signup from "./pages/signup";
 import BloodDonars from "./pages/BloodDonars";
 import { AuthContext } from "./Context/Authcontext";
- 
+
+// Debounce Hook for navigation
+const useDebouncedNavigate = () => {
+  const navigate = useNavigate();
+  let debounceTimer;
+
+  return (path) => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      navigate(path);
+    }, 300); // 300ms debounce time
+  };
+};
 
 // Layout for main content pages (with Navbar)
 const MainLayout = ({ children }) => (
@@ -42,7 +54,7 @@ const PublicRoute = ({ children }) => {
 
 const App = () => {
   const { user, setUser } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const debouncedNavigate = useDebouncedNavigate(); // Use debounced navigation
   const location = useLocation(); // Get the current path
 
   // Check for token in localStorage and set user on initial load
@@ -95,14 +107,6 @@ const App = () => {
             </PrivateRoute>
           }
         />
-        {/* <Route
-          path="/dashboard"
-          element={
-            <AdminLayout>
-              <Dashboard />
-            </AdminLayout>
-          }
-        /> */}
         <Route
           path="/BloodDonorForm"
           element={
