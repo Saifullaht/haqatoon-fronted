@@ -139,16 +139,16 @@ export default function App() {
           </NavbarItem>
         ) : (
           <div className="relative flex items-center gap-4">
-            <img
+            {/* <img
               id="avatarButton"
               src="/default-avatar.jpg"
-              alt="User dropdown"
               loading="lazy"
+              alt="User dropdown"
               className="w-10 h-10 rounded-full cursor-pointer border-3 border-red-500 hover:border-red-700 transition-all duration-400"
               onClick={() =>
                 setIsProfileDropdownOpen(!isProfileDropdownOpen)
               }
-            />
+            /> */}
             <span
               className="cursor-pointer"
               onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)}
